@@ -1,0 +1,65 @@
+SYSTEM CALLS UNDERSTANDING:
+
+
+
+fork: creates a new process by duplicating the calling process
+
+       Arguments: void
+
+
+
+stat: displays file or file system status.
+
+      returns a struct with information about a filepath given
+
+      Arguments: const char* pathname, struct stat *buf
+
+
+
+kill:	used to send a signal to another process
+
+        Arguments: pid_t pid, int sig
+
+
+
+mmap:	used to map files or devices into memory
+
+        Arguments: void *addr, size_t length, int prot, int flags, int fd, off_t offset
+
+
+
+chmod: used to change file mode bits
+
+        Arguments: const char *path, mode_t mode
+
+
+
+waitpid: wait for process to change state
+
+          Arguments: pid_t pid, int *wsstatus, int options
+
+
+
+
+
+SYSTEM CALL FAILS:
+
+
+
+fork: maximum processes are reached or memory is full
+
+exec: the process image is invalid, false filename
+
+unlink: the file is already unlinked/not found or the file is used by another process or not allowed to delete because of its security
+
+read: the file doesn't exist or because of no  premissions. or a DIR or simly an I/O error not caused by the system call
+
+      itself.
+
+mount: read only DIR, corrupt files, wrong path or source already mounted
+
+chmod: used false filepath, false flags
+
+kill: invalid process ID is used
+
+TRAPS:A trap is used to enter kernel mode. The system instruction is loaded and the trap is called and those loaded instructions will be done.
